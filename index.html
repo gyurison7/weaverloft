@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./assets/css/layout.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" />
+  </head>
+  <body>
+    <div class="dim"></div>
+    <header class="header">
+      <h1 class="logo">
+        <span class="blind">위버로프트 로고</span>
+        <a href="">
+          <img src="./assets/imgs/logo.png" alt="" />
+        </a>
+      </h1>
+      <nav class="gnb">
+        <span class="blind">gnb 메뉴</span>
+        <ul>
+          <li>
+            <a href="https://www.weaverloft.com/about/">회사소개</a>
+          </li>
+          <li>
+            <a href="https://www.weaverloft.com/work/">주요사업</a>
+          </li>
+          <li>
+            <a href="https://www.weaverloft.com/blog/">매거진</a>
+          </li>
+          <li>
+            <a href="https://www.weaverloft.com/blog/">공지사항</a>
+          </li>
+          <li>
+            <a href="https://www.weaverloft.com/recruit/">채용공고</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="right-area">
+        <div class="search">
+          <span class="blind">검색창</span>
+          <input type="text" placeholder="키워드를 입력하세요." />
+        </div>
+        <button class="menu">
+          <span class="blind">메뉴 버튼</span>
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+        </button>
+      </div>
+    </header>
+    <div class="search-popup">
+      <h2 class="popup-title">추천 검색어</h2>
+      <div class="first-line">
+        <ul class="keyword-list">
+          <li><button>#디자인</button></li>
+          <li><button>#기획</button></li>
+          <li><button>#퍼블리셔</button></li>
+        </ul>
+      </div>
+      <div class="second-line">
+        <ul class="keyword-list">
+          <li><button>#코딩테스트</button></li>
+          <li><button>#백엔드개발자</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="hidden-gnb">
+      <ul class="gnb-list">
+        <li>
+          <a href="https://www.weaverloft.com/about/">About</a>
+        </li>
+        <li>
+          <a href="https://www.weaverloft.com/work/">Project</a>
+        </li>
+        <li>
+          <a href="https://www.weaverloft.com/blog/">Magazine</a>
+        </li>
+        <li>
+          <a href="https://www.weaverloft.com/blog/">Notice</a>
+        </li>
+        <li>
+          <a href="https://www.weaverloft.com/recruit/">Recruit</a>
+        </li>
+      </ul>
+      <ul class="sns-list">
+        <li>
+          <a href="https://www.facebook.com/WeaverLoft">
+            <img src="./assets/imgs/facebook.png" alt="위버로프트 페이스북" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/">
+            <img src="./assets/imgs/youtube.png" alt="위버로프트 유튜브" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/weaverloft">
+            <img src="./assets/imgs/instagram.png" alt="위버로프트 인스타그램" />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <main class="container">
+      <section class="sc-main-banner">
+        <h2 class="blind">회사소개</h2>
+        <div class="swiper">
+          <ul class="swiper-wrapper">
+            <li class="swiper-slide">
+              <img src="./assets/imgs/main-banner1.jpg" alt="" />
+              <div class="content-area">
+                <h3 class="title">Planning<br />Marketing</h3>
+                <p class="sub-title">
+                  체계화된 분석과 고도화된 전략으로 더 나은 방향을 제시합니다.
+                </p>
+              </div>
+            </li>
+            <li class="swiper-slide">
+              <img src="./assets/imgs//main-banner2.jpg" alt="" />
+              <div class="content-area">
+                <h3 class="title">User Experience<br />Design</h3>
+                <p class="sub-title">
+                  다양한 경험을 바탕으로 차별화되고 트렌디한 디자인을 선보입니다.
+                </p>
+              </div>
+            </li>
+            <li class="swiper-slide">
+              <img src="./assets/imgs//main-banner3.jpg" alt="" />
+              <div class="content-area">
+                <h3 class="title">
+                  Technology<br />
+                  Digitalization
+                </h3>
+                <p class="sub-title">
+                  서비스가 완료되는 최접점에서 혁신적이고 안정적인 접근성을 구현합니다.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <div class="btn-area">
+            <button class="btn-prev"></button>
+            <button class="btn-next"></button>
+          </div>
+          <div class="control-area">
+            <div class="swiper-pagination"></div>
+            <button class="playOrPause">
+              <i class="fa-solid fa-pause fa-2xs" style="color: #ffffff"></i>
+              <i class="fa-solid fa-play fa-2xs" style="color: #ffffff"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="sc-project">
+        <h2>Project</h2>
+        <ul class="tab-list">
+          <li>
+            <button class="active">#ALL</button>
+          </li>
+          <li>
+            <button>#UX/UI</button>
+          </li>
+          <li>
+            <button>#DESIGN</button>
+          </li>
+          <li>
+            <button>#DEVELOPMENT</button>
+          </li>
+        </ul>
+        <ul class="project-list">
+          <li>
+            <a href="">
+              <div class="img-wrapper">
+                <img src="./assets/imgs/project1.png" alt="이스틸포유" />
+              </div>
+              <h3 class="project-title">이스틸포유</h3>
+              <p class="sub-title">국내 No.1 철강 거래 플랫폼 사이트 구축</p>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="img-wrapper"><img src="./assets/imgs/project2.png" alt="아이아파" /></div>
+              <h3 class="project-title">아이아파</h3>
+              <p class="sub-title">반응형 사이트 구축</p>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="img-wrapper">
+                <img src="./assets/imgs/project3.png" alt="(사)함께만드는세상" />
+              </div>
+              <h3 class="project-title">(사)함께만드는세상</h3>
+              <p class="sub-title">후원 캠페인 페이지 구축</p>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="img-wrapper"><img src="./assets/imgs/project4.png" alt="제스프로" /></div>
+              <h3 class="project-title">제스프로</h3>
+              <p class="sub-title">사이트 구축 및 운영</p>
+            </a>
+          </li>
+        </ul>
+        <a class="view-more" href="">View More</a>
+      </section>
+    </main>
+    <footer class="footer">
+      <h2 class="blind">푸터</h2>
+      <div class="inner">
+        <div class="left-area">
+          <div class="img-wrapper">
+            <img src="./assets/imgs/footer-logo.png" alt="위버로프트 푸터 로고" />
+          </div>
+          <small>Copyright © All Rights Reserved.</small>
+        </div>
+        <div class="right-area">
+          <ul class="sns-list">
+            <li>
+              <a href="https://www.facebook.com/WeaverLoft">
+                <img src="./assets/imgs/facebook.png" alt="위버로프트 페이스북" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/">
+                <img src="./assets/imgs/youtube.png" alt="위버로프트 유튜브" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/weaverloft">
+                <img src="./assets/imgs/instagram.png" alt="위버로프트 인스타그램" />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <button class="popup">
+      <span>popup</span>
+    </button>
+    <div class="modal-popup">
+      <h2 class="popup-title">팝업 타이틀</h2>
+      <button class="close">닫기</button>
+    </div>
+    <script>
+      // search
+      $(".search").click(function () {
+        $(".search-popup").show();
+      });
+      $(".search-popup button").click(function () {
+        const keyword = $(this).text().substring(1);
+        $(".search input").val(keyword);
+      });
+      $(document).click(function (e) {
+        if (!$(e.target).closest(".search, .search-popup").length) {
+          $(".search-popup").hide();
+        }
+      });
+
+      // hidden-gnb
+      $(".menu").click(function () {
+        $(".menu, .hidden-gnb").toggleClass("open");
+        $(".dim").toggleClass("show");
+      });
+      $(document).click(function (e) {
+        if ($(".hidden-gnb").is(":visible") && !$(e.target).closest(".menu, .hidden-gnb").length) {
+          $(".menu, .hidden-gnb").removeClass("open");
+          $(".dim").removeClass("show");
+        }
+      });
+
+      // main-banner
+      const bannerSlide = new Swiper(".swiper", {
+        slidesPerView: 1,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          type: "custom",
+          renderCustom: function (_, current, total) {
+            return current + " | " + total;
+          },
+        },
+        navigation: {
+          prevEl: ".btn-prev",
+          nextEl: ".btn-next",
+        },
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+      });
+      $(".playOrPause").click(function () {
+        $(this).toggleClass("pause");
+
+        if ($(this).hasClass("pause")) {
+          bannerSlide.autoplay.stop();
+        } else {
+          bannerSlide.autoplay.start();
+        }
+      });
+
+      // popup
+      $(".popup").click(function () {
+        $(this).hide();
+        $(".modal-popup, .dim").show();
+      });
+      function closePopup() {
+        $(".modal-popup, .dim").hide();
+        $(".popup").show();
+      }
+      $(".modal-popup .close").click(function () {
+        closePopup();
+      });
+      $(document).click(function (e) {
+        if (
+          $(".modal-popup").is(":visible") &&
+          !$(e.target).closest(".popup, .modal-popup").length
+        ) {
+          closePopup();
+        }
+      });
+    </script>
+  </body>
+</html>

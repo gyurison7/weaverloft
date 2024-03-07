@@ -1,0 +1,201 @@
+.sc-main-banner .swiper {
+  position: relative;
+  width: 100%;
+  height: 66vh;
+}
+.sc-main-banner .swiper .swiper-slide {
+  position: relative;
+}
+.sc-main-banner .swiper .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.sc-main-banner .swiper .swiper-slide .img1 {
+  object-position: 50% calc(50% + 20px);
+}
+.sc-main-banner .swiper .swiper-slide .content-area {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+.sc-main-banner .swiper .content-area .title {
+  font-size: clamp(42px, 5vw, 90px);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+.sc-main-banner .swiper .content-area .sub-title {
+  font-size: clamp(16px, 1.2vw, 26px);
+}
+.sc-main-banner .swiper .btn-area {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  z-index: 1;
+}
+@media (max-width: 1280px) {
+  .sc-main-banner .swiper .btn-area {
+    display: none;
+  }
+}
+.sc-main-banner .swiper .btn-area button {
+  width: 34px;
+  height: 67px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.sc-main-banner .swiper .btn-area .btn-prev {
+  background-image: url("../imgs/arrow-left.png");
+}
+.sc-main-banner .swiper .btn-area .btn-next {
+  background-image: url("../imgs/arrow-right.png");
+}
+.sc-main-banner .swiper .control-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 8px;
+  width: 100%;
+  max-width: 1200px;
+  height: 30px;
+  gap: 12px;
+  color: #fff;
+  z-index: 1;
+}
+.sc-main-banner .swiper .swiper-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: static;
+  width: 64px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  font-size: 14px;
+}
+.sc-main-banner .swiper .playOrPause {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+}
+.sc-main-banner .swiper .playOrPause .fa-play {
+  display: none;
+}
+.sc-main-banner .swiper .playOrPause.pause .fa-play {
+  display: block;
+}
+.sc-main-banner .swiper .playOrPause.pause .fa-pause {
+  display: none;
+}
+
+.sc-project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 130px;
+  padding-bottom: 220px;
+}
+.sc-project h2 {
+  text-align: center;
+  font-size: clamp(24px, 3vw, 50px);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.sc-project .tab-list {
+  display: flex;
+  gap: 16px;
+  margin: 40px 0;
+}
+.sc-project .tab-list li {
+}
+.sc-project .tab-list li button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 1.31rem;
+  font-size: clamp(14px, 1rem, 16px);
+  border: 1px solid #000;
+  border-radius: 20px;
+}
+.sc-project .tab-list li button.active {
+  background-color: #000;
+  color: #fff;
+}
+.sc-project .project-list {
+  display: flex;
+  gap: 2.25rem;
+}
+@media (max-width: 1280px) {
+  .sc-project .project-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.sc-project .project-list li {
+  flex: 1;
+}
+.sc-project .project-list li .img-wrapper {
+  width: 273px;
+  height: 273px;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+.sc-project .project-list li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: 0.3s;
+}
+.sc-project .project-list li a:hover img {
+  transform: scale(1.1);
+}
+.sc-project .project-list li .project-title {
+  font-size: clamp(16px, 1.375rem, 22px);
+  font-weight: 700;
+  margin-top: 14px;
+}
+.sc-project .project-list li .sub-title {
+  font-size: clamp(14px, 1rem, 16px);
+  color: #999;
+}
+.sc-project .view-more {
+  display: flex;
+  align-items: center;
+  margin-top: 33px;
+  padding: 0.78rem 2.31rem;
+  font-size: clamp(16px, 1.125rem, 18px);
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #0f4be2;
+  border-radius: 30px;
+}
+.sc-project .view-more::after {
+  content: "";
+  display: block;
+  width: 31px;
+  height: 16px;
+  background: url("../imgs/ico-arrow.png") no-repeat center / cover;
+  margin-left: 16px;
+}
