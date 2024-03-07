@@ -133,7 +133,7 @@
     flex-wrap: wrap;
   }
 }
-.sc-project .tab-list li button {
+.sc-project .tab-list li {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,10 +141,16 @@
   font-size: clamp(14px, 1rem, 16px);
   border: 1px solid #000;
   border-radius: 20px;
+  cursor: pointer;
 }
-.sc-project .tab-list li button.active {
+.sc-project .tab-list li.active {
   background-color: #000;
   color: #fff;
+}
+.sc-project .tab4.list-animation,
+.sc-project .tab3.list-animation,
+.sc-project .tab2.list-animation {
+  display: none;
 }
 .sc-project .project-list {
   display: flex;
