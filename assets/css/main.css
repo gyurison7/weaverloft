@@ -124,10 +124,14 @@
 }
 .sc-project .tab-list {
   display: flex;
-  gap: 16px;
+  gap: 1rem;
   margin: 40px 0;
 }
-.sc-project .tab-list li {
+@media (max-width: 700px) {
+  .sc-project .tab-list {
+    width: 273px;
+    flex-wrap: wrap;
+  }
 }
 .sc-project .tab-list li button {
   display: flex;
@@ -150,6 +154,12 @@
   .sc-project .project-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .sc-project .project-list {
+    display: flex;
+    flex-direction: column;
   }
 }
 .sc-project .project-list li {

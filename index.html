@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -64,22 +67,23 @@
       </div>
     </header>
     <div class="search-popup">
+      <div class="search mo-only">
+        <span class="blind">검색창</span>
+        <input type="text" placeholder="키워드를 입력하세요." />
+      </div>
       <h2 class="popup-title">추천 검색어</h2>
-      <div class="first-line">
-        <ul class="keyword-list">
-          <li><button>#디자인</button></li>
-          <li><button>#기획</button></li>
-          <li><button>#퍼블리셔</button></li>
-        </ul>
-      </div>
-      <div class="second-line">
-        <ul class="keyword-list">
-          <li><button>#코딩테스트</button></li>
-          <li><button>#백엔드개발자</button></li>
-        </ul>
-      </div>
+      <ul class="keyword-list">
+        <li><button>#디자인</button></li>
+        <li><button>#기획</button></li>
+        <li><button>#퍼블리셔</button></li>
+        <li><button>#코딩테스트</button></li>
+        <li><button>#백엔드개발자</button></li>
+      </ul>
     </div>
     <div class="hidden-gnb">
+      <div class="gnb-header">
+        <a href=""><img src="./assets/svgs/logo-white.svg" alt="" /></a>
+      </div>
       <ul class="gnb-list">
         <li>
           <a href="https://www.weaverloft.com/about/">About</a>
@@ -182,7 +186,7 @@
         </ul>
         <ul class="project-list">
           <li>
-            <a href="">
+            <a href="https://www.weaverloft.com/work/esteel4u">
               <div class="img-wrapper">
                 <img src="./assets/imgs/project1.png" alt="이스틸포유" />
               </div>
@@ -191,14 +195,14 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="https://www.weaverloft.com/work/work_view_iapa">
               <div class="img-wrapper"><img src="./assets/imgs/project2.png" alt="아이아파" /></div>
               <h3 class="project-title">아이아파</h3>
               <p class="sub-title">반응형 사이트 구축</p>
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="https://www.weaverloft.com/work/work_view_bss02">
               <div class="img-wrapper">
                 <img src="./assets/imgs/project3.png" alt="(사)함께만드는세상" />
               </div>
@@ -207,14 +211,14 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="https://www.weaverloft.com/work/work_view_zespro">
               <div class="img-wrapper"><img src="./assets/imgs/project4.png" alt="제스프로" /></div>
               <h3 class="project-title">제스프로</h3>
               <p class="sub-title">사이트 구축 및 운영</p>
             </a>
           </li>
         </ul>
-        <a class="view-more" href="">View More</a>
+        <a class="view-more" href="https://www.weaverloft.com/work/">View More</a>
       </section>
     </main>
     <footer class="footer">
@@ -222,7 +226,7 @@
       <div class="inner">
         <div class="left-area">
           <div class="img-wrapper">
-            <img src="./assets/imgs/footer-logo.png" alt="위버로프트 푸터 로고" />
+            <a href=""><img src="./assets/imgs/footer-logo.png" alt="위버로프트 푸터 로고" /></a>
           </div>
           <small>Copyright © All Rights Reserved.</small>
         </div>
@@ -256,16 +260,22 @@
     </div>
     <script>
       // search
-      $(".search").click(function () {
-        $(".search-popup").show();
+      $("header .search").click(function () {
+        $(".search-popup").toggleClass("open");
       });
+
       $(".search-popup button").click(function () {
         const keyword = $(this).text().substring(1);
         $(".search input").val(keyword);
       });
+
       $(document).click(function (e) {
-        if (!$(e.target).closest(".search, .search-popup").length) {
-          $(".search-popup").hide();
+        if (
+          $(".search-popup").hasClass("open") &&
+          !$(e.target).closest(".search, .search-popup").length
+        ) {
+          $(".search-popup").removeClass("open");
+          $(".search input").val("");
         }
       });
 
@@ -273,9 +283,22 @@
       $(".menu").click(function () {
         $(".menu, .hidden-gnb").toggleClass("open");
         $(".dim").toggleClass("show");
+
+        if ($(".hidden-gnb").hasClass("open")) {
+          gsap.from(".gnb-list li", {
+            xPercent: 50,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.5,
+          });
+        }
       });
+
       $(document).click(function (e) {
-        if ($(".hidden-gnb").is(":visible") && !$(e.target).closest(".menu, .hidden-gnb").length) {
+        if (
+          $(".hidden-gnb").hasClass("open") &&
+          !$(e.target).closest(".menu, .hidden-gnb").length
+        ) {
           $(".menu, .hidden-gnb").removeClass("open");
           $(".dim").removeClass("show");
         }
@@ -314,22 +337,41 @@
       // popup
       $(".popup").click(function () {
         $(this).hide();
-        $(".modal-popup, .dim").show();
+        $(".modal-popup").toggleClass("open");
+        $(".dim").toggleClass("show");
       });
+
       function closePopup() {
-        $(".modal-popup, .dim").hide();
+        $(".modal-popup").removeClass("open");
+        $(".dim").removeClass("show");
         $(".popup").show();
       }
+
       $(".modal-popup .close").click(function () {
         closePopup();
       });
+
       $(document).click(function (e) {
         if (
-          $(".modal-popup").is(":visible") &&
+          $(".modal-popup").hasClass("open") &&
           !$(e.target).closest(".popup, .modal-popup").length
         ) {
           closePopup();
         }
+      });
+
+      // project
+      gsap.from(".project-list li", {
+        scrollTrigger: {
+          trigger: ".sc-project",
+          start: "0% 100%",
+          end: "100% 100%",
+          scrub: true,
+          // markers: true,
+        },
+        yPercent: 100,
+        opacity: 0,
+        stagger: 0.1,
       });
     </script>
   </body>

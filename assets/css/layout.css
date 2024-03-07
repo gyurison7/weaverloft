@@ -9,7 +9,7 @@
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
+  z-index: 2;
 }
 .dim.show {
   display: block;
@@ -42,11 +42,11 @@ header .right-area {
   display: flex;
   align-items: center;
 }
-header .right-area .search {
+.search {
   display: flex;
   position: relative;
 }
-header .right-area .search::after {
+.search::after {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -57,18 +57,22 @@ header .right-area .search::after {
   background: url("../imgs/ico-search.png") no-repeat center / cover;
   cursor: pointer;
 }
-header .right-area .search input {
-  max-height: 38px;
-  padding: 0.75rem 1.625rem;
+.search input {
+  padding: 0.375rem 1.625rem;
   font-size: clamp(14px, 1rem, 16px);
   border: 0;
   border-radius: 30px;
   background-color: #eeeeee;
 }
-header .right-area .search input::placeholder {
+@media (max-width: 430px) {
+  header .right-area .search input {
+    display: none;
+  }
+}
+.search input::placeholder {
   font-size: 14px;
 }
-header .right-area .search input:focus {
+.search input:focus {
   outline: none;
 }
 header .right-area .menu {
@@ -106,26 +110,46 @@ header .right-area .menu.open .line3 {
   top: 4.625rem;
   right: 7rem;
   width: 350px;
-  height: 157px;
   padding: 22px 20px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 5px -5px 15px rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
+@media (max-width: 430px) {
+  .search-popup {
+    width: 100%;
+    right: 0;
+    border-radius: 0;
+  }
+}
+.search-popup.open {
+  display: block;
+}
+.search-popup .mo-only {
+  display: none;
+}
+@media (max-width: 430px) {
+  .search-popup .mo-only {
+    display: block;
+    margin-bottom: 16px;
+  }
+}
+.search-popup input {
+  width: 100%;
+}
+.search-popup input:focus {
+  outline: none;
+}
 .search-popup .popup-title {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 16px;
 }
-.search-popup .first-line .keyword-list {
+.search-popup .keyword-list {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
-}
-.search-popup .second-line .keyword-list {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
 }
 .search-popup .keyword-list li {
   padding: 4px 16px;
@@ -139,29 +163,45 @@ header .right-area .menu.open .line3 {
 .hidden-gnb {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   right: 0;
   width: 50vw;
   height: 100vh;
   background-color: #111;
-  color: #fff;
-  font-size: clamp(42px, 5vw, 90px);
-  font-weight: 600;
-  text-transform: uppercase;
   transform: translateX(100%);
   transition: 0.5s ease-in;
   z-index: 9;
 }
+@media (max-width: 700px) {
+  .hidden-gnb {
+    width: 100%;
+  }
+}
 .hidden-gnb.open {
   transform: translateX(0);
 }
+.hidden-gnb .gnb-header {
+  padding: 2rem;
+  padding-left: 3.75rem;
+}
+.hidden-gnb .gnb-header a {
+  display: block;
+  width: 50px;
+  height: 37px;
+}
+.hidden-gnb .gnb-header a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .hidden-gnb .gnb-list {
   padding-left: 10vw;
-}
-.hidden-gnb .gnb-list li {
-  transition: 0.5s;
+  color: #fff;
+  font-size: clamp(42px, 5vw, 90px);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 .hidden-gnb .gnb-list li a {
   display: flex;
@@ -170,20 +210,20 @@ header .right-area .menu.open .line3 {
 .hidden-gnb .gnb-list li a::before {
   display: block;
   content: "";
-  width: 0px;
-  height: 7px;
-  margin-right: 16px;
+  width: 0;
   background-color: #fff;
   transition: 0.5s;
 }
 .hidden-gnb .gnb-list li:hover a::before {
-  width: 50px;
+  width: 3.125rem;
+  height: 0.4375rem;
+  margin-right: 1rem;
 }
 .hidden-gnb .sns-list {
-  position: absolute;
-  right: 2rem;
-  bottom: 2rem;
   display: flex;
+  justify-content: flex-end;
+  padding-right: 3.75rem;
+  padding-bottom: 2rem;
   gap: 14px;
 }
 
@@ -192,7 +232,16 @@ footer {
   width: 100%;
   height: 80px;
   background-color: #424242;
-  padding: 0 1rem;
+}
+@media (max-width: 1280px) {
+  footer {
+    padding: 0 3.75rem;
+  }
+}
+@media (max-width: 700px) {
+  footer {
+    height: 100px;
+  }
 }
 footer .inner {
   display: flex;
@@ -278,6 +327,9 @@ footer .sns-list {
   height: 217px;
   background-color: #fff;
   z-index: 2;
+}
+.modal-popup.open {
+  display: block;
 }
 .modal-popup .popup-title {
   position: absolute;
