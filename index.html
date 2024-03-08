@@ -27,6 +27,7 @@
   </head>
   <body>
     <div class="dim"></div>
+
     <header class="header">
       <h1 class="logo">
         <span class="blind">위버로프트 로고</span>
@@ -67,6 +68,7 @@
         </button>
       </div>
     </header>
+
     <div class="search-popup">
       <div class="search mo-only">
         <span class="blind">검색창</span>
@@ -81,6 +83,7 @@
         <li><button>#백엔드개발자</button></li>
       </ul>
     </div>
+
     <div class="hidden-gnb">
       <div class="gnb-header">
         <a href=""><img src="./assets/svgs/logo-white.svg" alt="" /></a>
@@ -120,6 +123,7 @@
         </li>
       </ul>
     </div>
+
     <main class="container">
       <section class="sc-main-banner">
         <h2 class="blind">회사소개</h2>
@@ -169,6 +173,7 @@
           </div>
         </div>
       </section>
+
       <section class="sc-project">
         <h2>Project</h2>
         <ul class="tab-list">
@@ -347,7 +352,33 @@
         </div>
         <a class="view-more" href="https://www.weaverloft.com/work/">View More</a>
       </section>
+
+      <button class="popup"></button>
+
+      <div class="modal-popup">
+        <div class="modal-header">
+          <div class="title-area">
+            <h2 class="modal-title">위버톡</h2>
+            <p class="sub-title">문의사항이 있으신가요?</p>
+          </div>
+          <button class="close"><img src="./assets/svgs/close.svg" alt="close 버튼" /></button>
+        </div>
+        <div class="modal-content">
+          <div class="profile-img">
+            <img src="./assets/imgs/counselor.png" alt="" />
+          </div>
+          <span class="bubble">안녕하세요😊 무엇을 도와드릴까요?</span>
+        </div>
+        <div class="modal-footer">
+          <label for="file">
+            <div class="btn-file"></div>
+          </label>
+          <input type="file" name="file" id="file" />
+          <input type="text" class="input" placeholder="문의사항을 입력해주세요." />
+        </div>
+      </div>
     </main>
+
     <footer class="footer">
       <h2 class="blind">푸터</h2>
       <div class="inner">
@@ -378,13 +409,7 @@
         </div>
       </div>
     </footer>
-    <button class="popup">
-      <span>popup</span>
-    </button>
-    <div class="modal-popup">
-      <h2 class="popup-title">팝업 타이틀</h2>
-      <button class="close">닫기</button>
-    </div>
+
     <script>
       // search
       $("header .search").click(function () {
@@ -461,32 +486,6 @@
         }
       });
 
-      // popup
-      $(".popup").click(function () {
-        $(this).hide();
-        $(".modal-popup").toggleClass("open");
-        $(".dim").toggleClass("show");
-      });
-
-      function closePopup() {
-        $(".modal-popup").removeClass("open");
-        $(".dim").removeClass("show");
-        $(".popup").show();
-      }
-
-      $(".modal-popup .close").click(function () {
-        closePopup();
-      });
-
-      $(document).click(function (e) {
-        if (
-          $(".modal-popup").hasClass("open") &&
-          !$(e.target).closest(".popup, .modal-popup").length
-        ) {
-          closePopup();
-        }
-      });
-
       // sc-project
       function projectListAnimation(selector) {
         const animation = gsap.from(selector, {
@@ -515,6 +514,45 @@
 
       $(document).ready(function () {
         projectListAnimation(".tab1 .project-list li");
+      });
+
+      // popup
+      $(".popup").click(function () {
+        $(".modal-popup").toggleClass("open");
+        $(".dim").toggleClass("show");
+      });
+
+      function closePopup() {
+        $(".modal-popup").removeClass("open");
+        $(".dim").removeClass("show");
+      }
+
+      $(".modal-popup .close").click(function () {
+        closePopup();
+      });
+
+      $(document).click(function (e) {
+        if (
+          $(".modal-popup").hasClass("open") &&
+          !$(e.target).closest(".popup, .modal-popup").length
+        ) {
+          closePopup();
+        }
+      });
+
+      window.addEventListener("scroll", function () {
+        const currentScroll = $(window).scrollTop();
+        const documentHeight = $(document).height();
+        const windowHeight = $(window).height();
+        const footerHeight = $("footer").outerHeight();
+
+        const scrollValue = documentHeight - windowHeight - footerHeight;
+
+        if (currentScroll > scrollValue) {
+          $(".popup, .modal-popup").addClass("on");
+        } else {
+          $(".popup, .modal-popup").removeClass("on");
+        }
       });
     </script>
   </body>

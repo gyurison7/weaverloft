@@ -22,6 +22,15 @@ header {
   position: relative;
   padding: 1.4375rem 3.75rem;
 }
+@media (max-width: 430px) {
+  header {
+    padding: 1.4375rem 2.75rem;
+  }
+}
+header .logo {
+  width: 2.9375rem;
+  height: auto;
+}
 header .gnb {
   position: absolute;
   left: 50%;
@@ -186,10 +195,15 @@ header .right-area .menu.open .line3 {
   padding: 2rem;
   padding-left: 3.75rem;
 }
+@media (max-width: 430px) {
+  .hidden-gnb .gnb-header {
+    padding-left: 2.75rem;
+  }
+}
 .hidden-gnb .gnb-header a {
   display: block;
-  width: 50px;
-  height: 37px;
+  width: 2.9375rem;
+  height: auto;
 }
 .hidden-gnb .gnb-header a img {
   width: 100%;
@@ -226,6 +240,11 @@ header .right-area .menu.open .line3 {
   padding-bottom: 2rem;
   gap: 14px;
 }
+@media (max-width: 430px) {
+  .hidden-gnb .sns-list {
+    padding-right: 2.75rem;
+  }
+}
 
 footer {
   position: relative;
@@ -241,6 +260,12 @@ footer {
 @media (max-width: 700px) {
   footer {
     height: 100px;
+  }
+}
+@media (max-width: 430px) {
+  footer {
+    height: 100px;
+    padding: 0 2.75rem;
   }
 }
 footer .inner {
@@ -286,70 +311,5 @@ footer small {
 }
 footer .sns-list {
   display: flex;
-  gap: 14px;
-}
-
-.popup {
-  position: fixed;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 112px;
-  height: 112px;
-  background: url("../imgs/popup-box.png") no-repeat center / cover;
-  z-index: 1;
-}
-.popup::before {
-  position: absolute;
-  top: 28px;
-  left: 37px;
-  content: "";
-  width: 24px;
-  height: 24px;
-  background: url("../imgs/ico-popup.png") no-repeat center / cover;
-}
-.popup span {
-  position: absolute;
-  left: 24px;
-  top: 54px;
-  font-size: 16px;
-  color: #fff;
-  text-transform: uppercase;
-}
-
-.modal-popup {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  height: 217px;
-  background-color: #fff;
-  z-index: 2;
-}
-.modal-popup.open {
-  display: block;
-}
-.modal-popup .popup-title {
-  position: absolute;
-  top: 69px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  font-size: 22px;
-  font-weight: 600;
-}
-.modal-popup .close {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 60px;
-  font-size: 18px;
-  font-weight: 500;
-  color: #fff;
-  background-color: #0f4be2;
+  gap: 1rem;
 }
