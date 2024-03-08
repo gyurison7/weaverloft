@@ -85,8 +85,10 @@
     </div>
 
     <div class="hidden-gnb">
+      <h2 class="blind">토글 gnb 메뉴</h2>
       <div class="gnb-header">
-        <a href=""><img src="./assets/svgs/logo-white.svg" alt="" /></a>
+        <a href=""><img src="./assets/svgs/logo-white.svg" alt="위버로프트 로고" /></a>
+        <button class="close"><img src="./assets/svgs/close.svg" alt="close 버튼" /></button>
       </div>
       <ul class="gnb-list">
         <li>
@@ -161,14 +163,15 @@
             </li>
           </ul>
           <div class="btn-area">
-            <button class="btn-prev"></button>
-            <button class="btn-next"></button>
+            <button class="btn-prev"><span class="blind">이전 슬라이드 버튼</span></button>
+            <button class="btn-next"><span class="blind">다음 슬라이드 버튼</span></button>
           </div>
           <div class="control-area">
             <div class="swiper-pagination"></div>
             <button class="playOrPause">
-              <i class="fa-solid fa-pause fa-2xs" style="color: #ffffff"></i>
-              <i class="fa-solid fa-play fa-2xs" style="color: #ffffff"></i>
+              <span class="blind">슬라이드 일시정지/재생 버튼</span>
+              <i class="fa-solid fa-pause fa-xs" style="color: #ffffff"></i>
+              <i class="fa-solid fa-play fa-xs" style="color: #ffffff"></i>
             </button>
           </div>
         </div>
@@ -353,7 +356,7 @@
         <a class="view-more" href="https://www.weaverloft.com/work/">View More</a>
       </section>
 
-      <button class="popup"></button>
+      <button class="popup"><span class="blind">문의하기 버튼</span></button>
 
       <div class="modal-popup">
         <div class="modal-header">
@@ -413,6 +416,7 @@
     <script>
       // search
       $("header .search").click(function () {
+        $(this).toggleClass("open");
         $(".search-popup").toggleClass("open");
       });
 
@@ -424,16 +428,16 @@
       $(document).click(function (e) {
         if (
           $(".search-popup").hasClass("open") &&
-          !$(e.target).closest(".search, .search-popup").length
+          !$(e.target).closest("header .search, .search-popup").length
         ) {
-          $(".search-popup").removeClass("open");
+          $("header .search, .search-popup").removeClass("open");
           $(".search input").val("");
         }
       });
 
       // hidden-gnb
       $(".menu").click(function () {
-        $(".menu, .hidden-gnb").toggleClass("open");
+        $(".hidden-gnb").toggleClass("open");
         $(".dim").toggleClass("show");
 
         if ($(".hidden-gnb").hasClass("open")) {
@@ -446,12 +450,17 @@
         }
       });
 
+      $(".hidden-gnb .close").click(function () {
+        $(".hidden-gnb").removeClass("open");
+        $(".dim").removeClass("show");
+      });
+
       $(document).click(function (e) {
         if (
           $(".hidden-gnb").hasClass("open") &&
           !$(e.target).closest(".menu, .hidden-gnb").length
         ) {
-          $(".menu, .hidden-gnb").removeClass("open");
+          $(".hidden-gnb").removeClass("open");
           $(".dim").removeClass("show");
         }
       });

@@ -2,6 +2,14 @@
   position: relative;
 }
 
+.sc-main-banner {
+  margin-top: 85px;
+}
+@media (max-width: 700px) {
+  .sc-main-banner {
+    margin-top: 63px;
+  }
+}
 .sc-main-banner .swiper {
   position: relative;
   width: 100%;
@@ -35,6 +43,7 @@
 }
 .sc-main-banner .swiper .content-area .sub-title {
   font-size: clamp(16px, 1.2vw, 26px);
+  word-break: keep-all;
 }
 .sc-main-banner .swiper .btn-area {
   position: absolute;
@@ -210,6 +219,7 @@
   text-transform: uppercase;
   background-color: #0f4be2;
   border-radius: 30px;
+  transition: 0.3s;
 }
 .sc-project .view-more::after {
   content: "";
@@ -218,6 +228,9 @@
   height: 16px;
   background: url("../imgs/ico-arrow.png") no-repeat center / cover;
   margin-left: 16px;
+}
+.sc-project .view-more:hover {
+  opacity: 0.8;
 }
 
 .popup {
@@ -263,7 +276,7 @@
   height: 517px;
   border-radius: 10px;
   background-color: #fff;
-  z-index: 2;
+  z-index: 3;
 }
 .modal-popup.open {
   display: block;
